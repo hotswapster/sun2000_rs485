@@ -27,17 +27,27 @@ status_map = {
 
 
 def get_data():
-  resp = {}
-  resp['time'] = datetime.datetime.fromtimestamp(instrument.read_long(40000)).strftime("%Y-%m-%d %H:%M:%S")
-  resp['status'] = status_map[str(instrument.read_register(40939, 0))]
-  resp['temperature'] = instrument.read_register(40533, 1) 
-  resp['inverter_efficency'] = instrument.read_register(40685, 2) 
-  resp['frequency'] = instrument.read_register(40546, 2)
-  resp['current_power'] = instrument.read_long(40525)
-  resp['day_power'] = instrument.read_long(40562)*10
-  resp['total_power'] = instrument.read_long(40560)*10
-  return resp
+### For 12KTL
+#  resp = {}
+#  resp['time'] = datetime.datetime.fromtimestamp(instrument.read_long(40000)).strftime("%Y-%m-%d %H:%M:%S")
+#  resp['status'] = status_map[str(instrument.read_register(40939, 0))]
+#  resp['temperature'] = instrument.read_register(40533, 1) 
+#  resp['inverter_efficency'] = instrument.read_register(40685, 2) 
+#  resp['frequency'] = instrument.read_register(40546, 2)
+#  resp['current_power'] = instrument.read_long(40525)
+#  resp['day_power'] = instrument.read_long(40562)*10
+#  resp['total_power'] = instrument.read_long(40560)*10
 
+## For 5KTL
+  resp['time'] = datetime.datetime.fromtimestamp(instrument.read_long(40000)).strftime("%Y-%m-%d %H:%M:%S")
+  resp['status'] = status_map[str(instrument.read_register(32089, 0))]
+  resp['temperature'] = instrument.read_register(32087, 1) 
+  resp['inverter_efficency'] = instrument.read_register(32086, 2) 
+  resp['frequency'] = instrument.read_register(32085, 2)
+  resp['current_power'] = instrument.read_long(32064)
+  resp['day_power'] = instrument.read_long(32114)*10
+  resp['total_power'] = instrument.read_long(32106)*10
+  return resp
 
 def new_day():
   d = datetime.datetime.now()
