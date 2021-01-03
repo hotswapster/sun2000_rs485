@@ -25,3 +25,9 @@ Modbus Address 1.
 ### 12KTL
 You will need to connect a RJ45 connector to the RS485-In port of your Sun2000, see page 61 of the User manual for wiring information (http://solar.huawei.com/en-AU/download?p=%2F~%2Fmedia%2FSolar%2Fattachment%2Fpdf%2Feu%2Fservice%2Fdownload%2FSUN2000%208-28KTL%20User%20Manual.pdf)
 
+## Usage
+1. Ensure your user is a member off the `dialout` group (Linux).
+2. Configure `read.py` by commenting/uncommenting the appropriate registers for you inverter model. Refer comments in file. Configure port and MODBUS address.
+3. Ensure dependencies are installed `pip3 install modbusminimal`
+4. `python3 read.py [function]` where `[function]` is `newday`, `update`, or `get`
+
