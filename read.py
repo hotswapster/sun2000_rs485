@@ -27,8 +27,8 @@ status_map = {
 
 
 def get_data():
-### For 12KTL
-#  resp = {}
+  resp = {}
+## For 12KTL
 #  resp['time'] = datetime.datetime.fromtimestamp(instrument.read_long(40000)).strftime("%Y-%m-%d %H:%M:%S")
 #  resp['status'] = status_map[str(instrument.read_register(40939, 0))]
 #  resp['temperature'] = instrument.read_register(40533, 1) 
